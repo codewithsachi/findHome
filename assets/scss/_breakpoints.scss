@@ -1,0 +1,18 @@
+
+ @mixin breakpoint-up($bp-value) {
+    @media screen and (max-width:map-get($grid-breakpoints , #{$bp-value})) {
+        @content;
+    }
+ }
+
+ @mixin breakpoint-down($bp-value) {
+    @media screen and (min-width:map-get($grid-breakpoints , #{$bp-value})) {
+        @content;
+    }
+ }
+
+ @mixin breakpoint-between($bp-downValue ,$bp-upValue ) {
+    @media screen and (min-width:map-get($grid-breakpoints , #{$bp-downValue})) and (max-width:map-get($grid-breakpoints , #{$bp-upValue})) {
+        @content;
+    }
+ }

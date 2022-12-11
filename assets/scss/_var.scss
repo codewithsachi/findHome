@@ -1,1 +1,78 @@
-$clr-primary:red;
+
+// ======= variables =======
+$grid-breakpoints: (
+  "xs": 0,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1400px
+);
+
+$colors: (
+    "primary":#ff5a5f,
+    "accent-900":#1d293e,
+    "accent-500":#484848,
+    "accent-300":#777,
+    "white":white,
+    "black":black,
+);
+
+$font-weight: (
+    "400":400,
+    "600":600,
+    "700":700
+);
+
+$font-size: (
+    "100":14px,
+    "200":15px,
+    "300":16px,
+    "400":18px,
+    "500":22px,
+    "600":25px,
+    "700":30px,
+    "800":55px,
+);
+
+// ======= variables =======
+
+:root {
+    @each $clr , $clr-value in $colors {
+         --clr-#{$clr}:#{$clr-value};
+    };
+
+    @each $fw , $fw-value in $font-weight {
+        --fw-#{$fw}:#{$fw-value};
+      }
+
+      @each $fs , $fs-value in $font-size {
+        --fs-#{$fs}:#{$fs-value};
+      }
+}
+
+// ======= Utility classes =======
+@each $color, $value in $colors {
+    
+    .text-#{$color} {
+        color: var(--clr-#{$color});
+    };
+
+    .bg-#{$color} {
+        background-color: var(--clr-#{$color});
+    };
+  }
+
+  @each $fw , $fw-value in $font-weight {
+    .text-weight-#{$fw} {
+        font-weight:var(--fw-#{$fw});
+    }
+  }
+
+  @each $fs , $fs-value in $font-size {
+    .text-size-#{$fs} {
+        font-size: var(--fs-#{$fs});
+    }
+  }
+
+// ======= Utility classes =======
